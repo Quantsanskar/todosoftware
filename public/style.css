@@ -1,0 +1,397 @@
+/* Global Styles - Mimicking Windows 95 */
+body {
+  font-family: "MS Sans Serif", "Arial", sans-serif;
+  background-color: #008080; /* Teal background */
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top for scrollable content */
+  min-height: 100vh;
+  overflow-y: auto; /* Allow scrolling for content */
+  font-size: 14px;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px; /* Max width for desktop view */
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+/* Window Frame Styling */
+.window {
+  background-color: #c0c0c0; /* Standard grey */
+  border: 2px outset #ffffff;
+  box-shadow: 2px 2px #000000;
+  padding: 2px;
+  margin-bottom: 20px;
+}
+
+.window-title-bar {
+  background: linear-gradient(to right, #000080, #1084d0); /* Blue gradient */
+  color: #ffffff;
+  padding: 3px 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  margin-bottom: 2px;
+}
+
+.window-title-bar-text {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window-controls button {
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  width: 16px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 1;
+  padding: 0;
+  margin-left: 2px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window-controls button:active {
+  border-style: inset;
+  background-color: #a0a0a0;
+}
+
+/* Buttons */
+button {
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 2px;
+  min-width: 75px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
+button:active {
+  border-style: inset;
+  background-color: #a0a0a0;
+}
+
+button:disabled {
+  color: #808080;
+  border-color: #c0c0c0 #808080 #808080 #c0c0c0;
+  cursor: not-allowed;
+  background-color: #c0c0c0;
+}
+
+/* Inputs and Textareas */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  background-color: #ffffff;
+  border: 2px inset #808080;
+  padding: 3px 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 5px;
+  font-family: "MS Sans Serif", "Arial", sans-serif;
+  color: #000000;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #000080; /* Blue focus border */
+}
+
+label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: normal;
+}
+
+/* Form Grouping */
+.form-group {
+  margin-bottom: 10px;
+}
+
+/* Messages */
+.message {
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border: 1px solid;
+  background-color: #e0e0e0;
+  color: #000000;
+  border-color: #808080;
+}
+
+.message.error {
+  background-color: #ffd0d0;
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.message.success {
+  background-color: #d0ffd0;
+  border-color: #008000;
+  color: #008000;
+}
+
+/* Scrollbar Styling (Windows 95 style) */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #c0c0c0;
+  border: 1px solid #808080;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  box-shadow: inset 1px 1px #000000, inset -1px -1px #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d0d0d0;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+::-webkit-scrollbar-button:active {
+  border-style: inset;
+  background-color: #a0a0a0;
+}
+
+/* Specific Layouts */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 40px); /* Adjust for body margin */
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.kanban-column {
+  flex: 1;
+  min-width: 280px; /* Minimum width for columns */
+  background-color: #c0c0c0;
+  border: 2px inset #808080;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px; /* Ensure columns have some height */
+}
+
+.kanban-column-header {
+  background-color: #000080;
+  color: #ffffff;
+  padding: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.task-list {
+  flex-grow: 1;
+  overflow-y: auto; /* Scrollable task list */
+  padding-right: 5px; /* Space for scrollbar */
+}
+
+.task-card {
+  background-color: #ffffff;
+  border: 2px outset #c0c0c0;
+  padding: 8px;
+  margin-bottom: 5px;
+  cursor: grab;
+  box-shadow: 1px 1px #000000;
+  transition: transform 0.1s ease-out; /* Animation for drag */
+}
+
+.task-card:active {
+  cursor: grabbing;
+  transform: scale(1.02); /* Slight scale on active drag */
+}
+
+.task-card.dragging {
+  opacity: 0.5;
+  border: 2px dashed #000080;
+}
+
+.task-card h4 {
+  margin: 0 0 5px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.task-card p {
+  margin: 0 0 5px 0;
+  font-size: 13px;
+}
+
+.task-card small {
+  display: block;
+  font-size: 11px;
+  color: #555555;
+  margin-top: 5px;
+}
+
+.task-card-actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.task-card-actions button {
+  padding: 2px 5px;
+  font-size: 12px;
+  min-width: auto;
+}
+
+.activity-log-panel {
+  background-color: #c0c0c0;
+  border: 2px inset #808080;
+  padding: 5px;
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.activity-log-panel h3 {
+  background-color: #000080;
+  color: #ffffff;
+  padding: 5px;
+  font-weight: bold;
+  margin: -5px -5px 5px -5px; /* Adjust to fill header */
+  text-align: center;
+}
+
+.activity-log-item {
+  border-bottom: 1px dotted #808080;
+  padding: 3px 0;
+  font-size: 13px;
+}
+
+.activity-log-item:last-child {
+  border-bottom: none;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  box-shadow: 4px 4px #000000;
+  padding: 2px;
+  min-width: 300px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  padding: 5px 10px;
+  border-top: 1px solid #808080;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.conflict-display {
+  border: 1px solid #808080;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #e0e0e0;
+}
+
+.conflict-display h5 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000080;
+}
+
+.conflict-display p {
+  margin: 0 0 3px 0;
+  font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+  }
+
+  .kanban-column {
+    min-width: unset;
+    width: 100%;
+  }
+
+  #root {
+    margin: 10px;
+  }
+}
