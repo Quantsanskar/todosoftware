@@ -7,7 +7,8 @@ const SocketContext = createContext(null)
 
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null)
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"
+  // const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://todosoftwarebackend.onrender.com"
 
   useEffect(() => {
     const newSocket = io(backendUrl, {
