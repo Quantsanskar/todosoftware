@@ -155,10 +155,13 @@ function TaskModal({ task, onSave, onClose, conflictData, onResolveConflict, all
               <div className="form-group">
                 <label htmlFor="assignedTo">Assigned To:</label>
                 <select id="assignedTo" value={assignedTo} onChange={(e) => setAssignedTo(e.target.value)}>
-                  <option value="">Unassigned</option>
-                  {/* In a real app, fetch and map allUsers here */}
-                  {/* Example: {allUsers.map(user => <option key={user._id} value={user._id}>{user.username}</option>)} */}
+                  {allUsers.map((user) => (
+                    <option key={user._id} value={user._id}>
+                      {user.username}
+                    </option>
+                  ))}
                 </select>
+
               </div>
               <div className="modal-footer">
                 <button type="submit">{isNewTask ? "Create" : "Save"}</button>
