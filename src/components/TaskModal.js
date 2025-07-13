@@ -155,12 +155,16 @@ function TaskModal({ task, onSave, onClose, conflictData, onResolveConflict, all
               <div className="form-group">
                 <label htmlFor="assignedTo">Assigned To:</label>
                 <select id="assignedTo" value={assignedTo} onChange={(e) => setAssignedTo(e.target.value)}>
-                  {allUsers.map((user) => (
-                    <option key={user._id} value={user._id}>
-                      {user.username}
-                    </option>
-                  ))}
+                  {allUsers.map((user) => {
+                    console.log(user._id, user.username); // Log each user
+                    return (
+                      <option key={user._id} value={user._id}>
+                        {user.username}
+                      </option>
+                    );
+                  })}
                 </select>
+
 
               </div>
               <div className="modal-footer">
